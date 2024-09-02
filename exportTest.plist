@@ -2,9 +2,24 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>method</key>
-	<string>ad-hoc</string>
-	<key>compileBitcode</key>
+    <key>compileBitcode</key>
+    <false/>
+    <key>method</key>
+    <string>debugging</string>
+    <key>compileBitcode</key>
 	<false/>
+    <key>provisioningProfiles</key>
+    <dict>
+        <key>com.hdvoyager.wsios</key>
+        <string>csjs3_horgos_profile_dev</string>
+    </dict>
+    <key>signingCertificate</key>
+    <string>27AF09A3E228E28FC72512D7A9B0D487F735DBE0</string>
+    <key>signingStyle</key>
+    <string>manual</string>
+    <key>stripSwiftSymbols</key>
+    <true/>
+    <key>teamID</key>
+    <string>3YH72X6UU6</string>
 </dict>
 </plist>
