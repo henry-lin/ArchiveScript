@@ -8,10 +8,10 @@ fi
 #工程绝对路径
 project_path=$(cd `dirname $0`; pwd)
 
-#工程名 将XXX替换成自己的工程名
+#工程名 替换成自己的工程名
 project_name=XXX
 
-#scheme名 将XXX替换成自己的sheme名
+#scheme名 替换成自己的sheme名
 scheme_name=XXX
 
 #打包模式 Debug/Release
@@ -68,6 +68,8 @@ archive -workspace ${project_path}/${project_name}.xcworkspace \
 -configuration ${development_mode} \
 -archivePath ${build_path}/${project_name}.xcarchive  -quiet  || exit
 
+xattr -w com.apple.xcode.CreatedByBuildSystem true ${build_path}
+
 echo '///--------'
 echo '/// 编译完成'
 echo '///--------'
@@ -101,22 +103,20 @@ echo '///-------------'
 echo '/// 开始发布ipa包 '
 echo '///-------------'
 
-if [ $number == 1 ];then
+# if [ $number == 1 ];then
 
-#验证并上传到App Store
-# 将-u 后面的XXX替换成自己的AppleID的账号，-p后面的XXX替换成自己的密码
-altoolPath="/Applications/Xcode.app/Contents/Applications/Application Loader.app/Contents/Frameworks/ITunesSoftwareService.framework/Versions/A/Support/altool"
-"$altoolPath" --validate-app -f ${exportIpaPath}/${scheme_name}.ipa -u XXX -p XXX -t ios --output-format xml
-"$altoolPath" --upload-app -f ${exportIpaPath}/${scheme_name}.ipa -u  XXX -p XXX -t ios --output-format xml
-else
+# #验证并上传到App Store
+# # 将-u 后面的XXX替换成自己的AppleID的账号，-p后面的XXX替换成自己的密码
+# altoolPath="/Applications/Xcode.app/Contents/Applications/Application Loader.app/Contents/Frameworks/ITunesSoftwareService.framework/Versions/A/Support/altool"
+# "$altoolPath" --validate-app -f ${exportIpaPath}/${scheme_name}.ipa -u XXX -p XXX -t ios --output-format xml
+# "$altoolPath" --upload-app -f ${exportIpaPath}/${scheme_name}.ipa -u  XXX -p XXX -t ios --output-format xml
+# else
 
-#上传到Fir
-# 将XXX替换成自己的Fir平台的token
-fir login -T XXX
-fir publish $exportIpaPath/$scheme_name.ipa
+# #上传到Fir
+# # 将XXX替换成自己的Fir平台的token
+# fir login -T XXX
+# fir publish $exportIpaPath/$scheme_name.ipa
 
-fi
+# fi
 
 exit 0
-
-
