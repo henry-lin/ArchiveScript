@@ -8,5 +8,18 @@
 	<true/>
 	<key>uploadSymbols</key>
 	<true/>
+	<key>provisioningProfiles</key>
+    <dict>
+        <key>com.hdvoyager.wsios</key>
+        <string>csjs3_horgos_profile_dis</string>
+    </dict>
+    <key>signingCertificate</key>
+    <string>588BDA0BF98221D67480BCA549B592F406B9397B</string>
+    <key>signingStyle</key>
+    <string>manual</string>
+    <key>stripSwiftSymbols</key>
+    <true/>
+    <key>teamID</key>
+    <string>3YH72X6UU6</string>
 </dict>
 </plist>
